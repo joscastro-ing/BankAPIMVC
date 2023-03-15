@@ -16,7 +16,7 @@ public class AccountService {
     public AccountRepository accountRepository;
     @Autowired
     public TypeAccountRepository typeAccountRepository;
-    
+
     public ArrayList<Account> getAccounts(){
         return (ArrayList<Account>) accountRepository.findAll();
     }
@@ -48,5 +48,12 @@ public class AccountService {
             return true;
         }
     }
-    
+
+    public void remove(Account account) {
+         accountRepository.delete(account);
+    }
+
+    public void removeById(long id) {
+        accountRepository.deleteById(id);
+    }
 }

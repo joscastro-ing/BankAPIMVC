@@ -35,6 +35,14 @@ public class AccountController {
     public ArrayList<Account> findByTypeAccount(@PathVariable String type){
         return accountService.findByTypeAccount(type);
     }
-    
 
+    @DeleteMapping("/remove")
+    public void delete(@RequestBody Account account) {
+        accountService.remove(account);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public void delete(@PathVariable("id") long id) {
+        accountService.removeById(id);
+    }
 }
